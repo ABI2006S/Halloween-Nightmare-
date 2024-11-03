@@ -31,7 +31,7 @@ const trappedMessage = document.getElementById('trapped-message');
 // Initialize Game
 function initGame() {
     loadingScreen.style.display = 'flex';
-    
+
     // Preload assets
     Promise.all([
         preloadImages(),
@@ -52,7 +52,7 @@ function preloadImages() {
         'images/skeleton.png',
         'images/candle.png'
     ];
-    
+
     return Promise.all(images.map(src => {
         return new Promise((resolve, reject) => {
             const img = new Image();
@@ -65,9 +65,15 @@ function preloadImages() {
 
 function preloadSounds() {
     return new Promise(resolve => {
-        sounds.ambient.once('load', resolve);
-        sounds.doorCreak.once('load', resolve);
-        sounds.trapped.once('load', resolve);
+        let soundsLoaded = 0;
+        const checkAllSoundsLoaded = () => {
+            soundsLoaded += 1;
+            if (soundsLoaded === Object.keys(sounds).length) resolve();
+        };
+
+        sounds.ambient.once('load', checkAllSoundsLoaded);
+        sounds.doorCreak.once('load', checkAllSoundsLoaded);
+        sounds.trapped.once('load', checkAllSoundsLoaded);
     });
 }
 
@@ -95,7 +101,7 @@ function navigateToRoom(roomNumber) {
         duration: 0.5,
         onComplete: () => {
             currentRoomElement.classList.remove('active');
-            
+
             // Check if we're going back to room 1
             if (currentRoom === 3 && roomNumber === 1) {
                 showTrappedMessage();
@@ -105,7 +111,7 @@ function navigateToRoom(roomNumber) {
             nextRoomElement.classList.add('active');
             gsap.fromTo(nextRoomElement,
                 { opacity: 0 },
-                { 
+                {
                     opacity: 1,
                     duration: 0.5,
                     onComplete: () => {
@@ -122,16 +128,15 @@ function navigateToRoom(roomNumber) {
 function showTrappedMessage() {
     sounds.trapped.play();
     trappedMessage.style.display = 'flex';
-    
-    
-    
+
     gsap.fromTo(trappedMessage,
         { opacity: 0 },
         {
             opacity: 1,
             duration: 0.5,
-            yoyo: true,
             repeat: 1,
+            yoyo: true,
+            repeatDelay: 0.5,
             onComplete: () => {
                 trappedMessage.style.display = 'none';
             }
@@ -153,7 +158,7 @@ function handleDoorClick(event) {
     // Navigate to next room after door animation
     setTimeout(() => {
         navigateToRoom(nextRoom);
-        door.classList.remove('open');
+        door.classList.remove('open');  // Reset door state after navigation
     }, 1000);
 }
 
@@ -166,9 +171,5 @@ document.addEventListener('DOMContentLoaded', initGame);
 
 // Handle visibility change to manage ambient sound
 document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        sounds.ambient.volume(0);
-    } else {
-        sounds.ambient.volume(0.5);
-    }
+    sounds.ambient.volume(document.hidden ? 0 : 0.5);
 });
