@@ -1,4 +1,3 @@
-/* Base Styles */
 body {
     margin: 0;
     padding: 0;
@@ -156,7 +155,7 @@ body {
     position: absolute;
     width: 100px;
     height: 120px;
-    background: url('../images/ghost.png') no-repeat;
+    background: url('../images/ghost.png.png') no-repeat;
     background-size: contain;
     animation: float 4s ease-in-out infinite;
 }
@@ -166,10 +165,10 @@ body {
 }
 
 .skeleton {
-    position: absolute;
+    position: left bottom;
     width: 200px;
-    height: 300px;
-    background: url('../images/skeleton.png') no-repeat;
+    height: 250px;
+    background: url('../images/skeleton.png.png') no-repeat;
     background-size: contain;
     bottom: 50px;
     animation: sway 3s ease-in-out infinite;
@@ -179,7 +178,7 @@ body {
     position: absolute;
     width: 50px;
     height: 100px;
-    background: url('../images/candle.png') no-repeat;
+    background: url('../images/candle.png.png   ') no-repeat;
     background-size: contain;
 }
 
