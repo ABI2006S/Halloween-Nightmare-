@@ -78,7 +78,8 @@ body {
     height: 100%;
     display: none;
     background-color: #1a1a1a;
-    background-image: url('../images/candle.png.png');
+    /* background-image: url('../images/candle.png.png');
+    background-repeat: no-repeat; */
 }
 
 .room.active {
