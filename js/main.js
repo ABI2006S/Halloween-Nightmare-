@@ -31,7 +31,7 @@ const trappedMessage = document.getElementById('trapped-message');
 
 // Initialize Game
 function initGame() {
-    loadingScreen.style.display = 'flex';
+    loadingScreen.style.display = 'none';
     
     // Preload assets
     Promise.all([
