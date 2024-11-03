@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween Nightmare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landing-page" class="screen active">
+        <h1 class="title">Halloween Nightmare</h1>
+        <button id="start-btn" class="start-button">Enter If You Dare</button>
+        <div class="floating-ghosts">
+            <div class="ghost"></div>
+            <div class="ghost"></div>
+            <div class="ghost"></div>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div id="game-container" class="screen">
+        <!-- Room 1 -->
+        <div id="room1" class="room active">
+            <div class="room-content">
+                <div class="door-frame">
+                    <div class="door interactive">
+                        <div class="door-knob"></div>
+                    </div>
+                </div>
+                <div class="cobweb top-left"></div>
+                <div class="cobweb top-right"></div>
+                <div class="spider"></div>
+                <div class="candle"></div>
+            </div>
+        </div>
+
+        <!-- Room 2 -->
+        <div id="room2" class="room">
+            <div class="room-content">
+                <div class="door-container">
+                    <div class="door-frame">
+                        <div class="door interactive">
+                            <div class="door-knob"></div>
+                        </div>
+                    </div>
+                    <div class="door-frame">
+                        <div class="door interactive">
+                            <div class="door-knob"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="old-tv"></div>
+                <div class="broken-aquarium"></div>
+                <div class="cobweb top-left"></div>
+                <div class="ghost floating"></div>
+            </div>
+        </div>
+
+        <!-- Room 3 -->
+        <div id="room3" class="room">
+            <div class="room-content">
+                <div class="door-container">
+                    <div class="door-frame">
+                        <div class="door interactive">
+                            <div class="door-knob"></div>
+                        </div>
+                    </div>
+                    <div class="door-frame">
+                        <div class="door interactive">
+                            <div class="door-knob"></div>
+                        </div>
+                    </div>
+                    <div class="door-frame">
+                        <div class="door interactive">
+                            <div class="door-knob"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skeleton"></div>
+                <div class="ghost floating"></div>
+                <div class="ghost floating delayed"></div>
+                <div class="candle flickering"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay Messages -->
+    <div id="trapped-message" class="overlay-message">
+        <h2>You're Trapped!</h2>
+        <p>There's no escape...</p>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="spinner"></div>
+        <p>Entering the nightmare...</p>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="ambient-sound" loop>
+        <source src="audio/ambient.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="door-sound">
+        <source src="audio/door-creak.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="trapped-sound">
+        <source src="audio/trapped.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts -->
+    <script src="js/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

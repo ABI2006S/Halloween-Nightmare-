@@ -1,0 +1,289 @@
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Creepster', cursive;
+    background-color: #000000;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* Fullscreen and Flex-Center Mixins */
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Screen */
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* Landing Page */
+#landing-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: radial-gradient(circle, #1a0000 0%, #000000 100%);
+}
+
+#landing-page .title {
+    font-size: 5rem;
+    color: #ff0000;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    animation: flicker 3s infinite;
+}
+
+#landing-page .start-button {
+    font-family: 'Creepster', cursive;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    background-color: #ff0000;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#landing-page .start-button:hover {
+    background-color: #8b0000;
+    transform: scale(1.1);
+}
+
+/* Room Styles */
+.room {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: #1a1a1a;
+}
+
+#room1 {
+ background-image: url('../images/img1.jpg');
+ background-size:cover;
+ background-position: bottom left;
+ 
+}
+#room2 {
+    background-image: url('../images/img1.jpg');
+    background-size:cover;
+    background-position: bottom left;
+    
+   }
+#room3 {
+    background-image: url('../images/img1.jpg');
+    background-size:cover;
+    background-position: bottom left;
+    
+   }
+
+.room.active {
+    display: block;
+}
+
+.room .room-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Door Styles */
+.door-frame {
+    width: 200px;
+    height: 350px;
+    border: 10px solid #2a1810;
+    position: relative;
+    margin: 0 20px;
+}
+
+.door {
+    width: 100%;
+    height: 100%;
+    background-color: #4a2618;
+    position: relative;
+    transform-origin: left;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+.door.open {
+    transform: perspective(1000px) rotateY(-70deg);
+}
+
+.door .door-knob {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #b8860b; /* Brass color */
+    border-radius: 50%;
+}
+
+/* Decorations */
+.cobweb {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: url('../images/cobweb.png') no-repeat;
+    background-size: contain;
+    opacity: 0.7;
+}
+
+.cobweb.top-left {
+    top: 0;
+    left: 0;
+}
+
+.cobweb.top-right {
+    top: 0;
+    right: 0;
+    transform: scaleX(-1);
+}
+
+.ghost {
+    position: absolute;
+    width: 100px;
+    height: 120px;
+    background: url('../images/ghost.png.png') no-repeat;
+    background-size: contain;
+    animation: float 4s ease-in-out infinite;
+}
+
+.ghost.delayed {
+    animation-delay: 2s;
+}
+
+.skeleton {
+    position: left bottom;
+    width: 200px;
+    height: 250px;
+    background: url('../images/skeleton.png.png') no-repeat;
+    background-size: contain;
+    bottom: 50px;
+    animation: sway 3s ease-in-out infinite;
+}
+
+.candle {
+    position: absolute;
+    width: 50px;
+    height: 100px;
+    background: url('../images/candle.png.png   ') no-repeat;
+    background-size: contain;
+}
+
+.candle.flickering::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #fff 0%, transparent 70%);
+    animation: flicker 0.5s infinite;
+}
+
+/* Overlay Messages */
+.overlay-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    z-index: 100;
+}
+
+.overlay-message h2 {
+    font-size: 4rem;
+    color: #ff0000;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.overlay-message p {
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #000000;
+    z-index: 1000;
+}
+
+#loading-screen .spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 0, 0, 0.3);
+    border-top-color: #ff0000;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+#loading-screen p {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #ff0000;
+}
+
+/* Keyframes */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
