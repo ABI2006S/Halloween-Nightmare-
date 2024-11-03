@@ -1,4 +1,4 @@
-/ Sound Management
+// Sound Management
 const sounds = {
     ambient: new Howl({
         src: ['audio/ambient.mp3'],
@@ -30,7 +30,7 @@ const trappedMessage = document.getElementById('trapped-message');
 
 // Initialize Game
 function initGame() {
-    loadingScreen.style.display = 'flex';
+    loadingScreen.style.display = 'none';
     
     // Preload assets
     Promise.all([
@@ -38,10 +38,10 @@ function initGame() {
         preloadSounds()
     ]).then(() => {
         setTimeout(() => {
-            loadingScreen.style.display = 'none';
             landingPage.classList.add('active');
         }, 2000);
     });
+    loadingScreen.style.display = 'none';
 }
 
 // Preload Functions

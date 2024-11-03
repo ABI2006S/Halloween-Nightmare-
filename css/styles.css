@@ -44,6 +44,7 @@ body {
     align-items: center;
     flex-direction: column;
     background: radial-gradient(circle, #1a0000 0%, #000000 100%);
+    background-image: url('../images/ghost.png.png');
 }
 
 #landing-page .title {
@@ -78,6 +79,7 @@ body {
     height: 100%;
     display: none;
     background-color: #1a1a1a;
+    background-image: url('../images/candle.png.png');
 }
 
 .room.active {
